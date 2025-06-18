@@ -24,13 +24,8 @@ if st.button("Predict"):
 
     st.subheader("Prediction Result:")
     st.write(f"Predicted probability of having diabetes: *{prediction:.2f}*")
-if submit:
-    # Ensure order matches training data
-    input_data = np.array([[pregnancies, glucose, blood_pressure, skin_thickness,
-                            insulin, bmi, dpf, age]])
-        prediction = model.predict(input_data)[0]
-    # Moved this section inside the button click block
-    if prediction == 1:
+k
+    if prediction >0.5 1:
         st.error("Warning: High chance of diabetes")
     else:
         st.success("Low chance of diabetes")
