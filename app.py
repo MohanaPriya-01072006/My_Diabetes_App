@@ -17,15 +17,20 @@ mass = st.slider("Body Mass Index", 0.0, 50.0, 25.0)
 preg= st.slider("Number of Pregnancies", 0, 20, 0)
 pedi = st.slider("Diabetes Pedigree Function", 0.0, 2.0, 0.5)
 
+
 if st.button("Predict"):
     features = np.array([[age,plas,pres,skin,insu,mass,pedi,preg]])
     prediction = model.predict(features)[0]
 
     st.subheader("Prediction Result:")
     st.write(f"Predicted probability of having diabetes: *{prediction:.2f}*")
-
+if submit:
+    # Ensure order matches training data
+    input_data = np.array([[pregnancies, glucose, blood_pressure, skin_thickness,
+                            insulin, bmi, dpf, age]])
+        prediction = model.predict(input_data)[0]
     # Moved this section inside the button click block
-    if prediction > 0.5:
+    if prediction == 1:
         st.error("Warning: High chance of diabetes")
     else:
         st.success("Low chance of diabetes")
