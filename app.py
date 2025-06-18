@@ -27,5 +27,5 @@ if st.button("Predict"):
 
 if prediction >0.5:
         st.error("Warning: High chance of diabetes")
-    else:
+else:
         st.success("Low chance of diabetes")
