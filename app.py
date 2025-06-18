@@ -24,8 +24,8 @@ if st.button("Predict"):
 
     st.subheader("Prediction Result:")
     st.write(f"Predicted probability of having diabetes: *{prediction:.2f}*")
-k
-    if prediction >0.5:
+
+if prediction >0.5:
         st.error("Warning: High chance of diabetes")
     else:
         st.success("Low chance of diabetes")
